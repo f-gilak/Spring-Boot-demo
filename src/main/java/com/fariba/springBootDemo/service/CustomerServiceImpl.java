@@ -3,6 +3,7 @@ package com.fariba.springBootDemo.service;
 import com.fariba.springBootDemo.dao.CustomerDAO;
 import com.fariba.springBootDemo.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
+    @Qualifier("customerDAOJpaImpl")
     private CustomerDAO customerDAO;
 
     @Override
