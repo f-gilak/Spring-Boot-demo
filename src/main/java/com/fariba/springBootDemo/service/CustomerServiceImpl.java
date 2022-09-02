@@ -1,45 +1,45 @@
 package com.fariba.springBootDemo.service;
 
-import com.fariba.springBootDemo.dao.CustomerDAO;
+import com.fariba.springBootDemo.dao.CustomerRepository;
 import com.fariba.springBootDemo.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@Transactional
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
-    @Qualifier("customerDAOJpaImpl")
-    private CustomerDAO customerDAO;
+    private CustomerRepository customerRepository;
 
     @Override
     public List<Customer> findAll() {
-        return customerDAO.findAll();
+        return customerRepository.findAll();
     }
 
     @Override
     public Customer findById(long id) {
-        Customer customer = customerDAO.findById(id);
-        if (customer == null) {
-            throw new RuntimeException("Customer id not found - " + id);
+        Optional<Customer> optionalCustomer = customerRepository.findById(id);
+        if (optionalCustomer.isPresent()) {
+            return optionalCustomer.get();
         }
-        return customer;
+        throw new RuntimeException("Customer id not found - " + id);
     }
 
     @Override
     public void save(Customer customer) {
-        customerDAO.save(customer);
+        customerRepository.save(customer);
     }
 
     @Override
     public String deleteById(long id) {
         Customer customer = findById(id);
-        customerDAO.deleteById(id);
+        customerRepository.deleteById(id);
         return "Customer id deleted - " + id;
     }
 }
