@@ -4,7 +4,7 @@ import com.fariba.springBootDemo.entity.Customer;
 
 import java.util.List;
 
-public interface CustomerService {
+public interface CustomerOldService {
 
     public List<Customer> findAll();
 

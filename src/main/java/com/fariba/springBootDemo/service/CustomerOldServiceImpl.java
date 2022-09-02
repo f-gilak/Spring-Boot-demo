@@ -3,16 +3,13 @@ package com.fariba.springBootDemo.service;
 import com.fariba.springBootDemo.dao.CustomerRepository;
 import com.fariba.springBootDemo.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerOldServiceImpl implements CustomerOldService {
 
     @Autowired
     private CustomerRepository customerRepository;
