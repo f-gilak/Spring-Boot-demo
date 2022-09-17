@@ -4,12 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_tmp_customer", schema = "cmn")
-@SequenceGenerator(name = "sq_customer",allocationSize = 1, sequenceName = "sq_tmp_customer",schema = "cmn")
-public class  Customer {
+@SequenceGenerator(name = "sq_customer", allocationSize = 1, sequenceName = "sq_tmp_customer", schema = "cmn")
+public class Customer {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sq_customer")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sq_customer")
     private long id;
 
     @Column(name = "first_name")
@@ -21,7 +21,7 @@ public class  Customer {
     @Column(name = "email")
     private String email;
 
-    public Customer(){
+    public Customer() {
 
     }
 

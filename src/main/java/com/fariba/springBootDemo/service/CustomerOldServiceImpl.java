@@ -16,7 +16,7 @@ public class CustomerOldServiceImpl implements CustomerOldService {
 
     @Override
     public List<Customer> findAll() {
-        return customerRepository.findAll();
+        return customerRepository.findAllByOrderByLastNameDesc();
     }
 
     @Override
